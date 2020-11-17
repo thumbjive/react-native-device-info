@@ -878,16 +878,10 @@ export function getLastUpdateTimeSync() {
 }
 
 export async function getPhoneNumber() {
-  if (Platform.OS === 'android') {
-    return RNDeviceInfo.getPhoneNumber();
-  }
   return 'unknown';
 }
 
 export function getPhoneNumberSync() {
-  if (Platform.OS === 'android') {
-    return RNDeviceInfo.getPhoneNumberSync();
-  }
   return 'unknown';
 }
 
