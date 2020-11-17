@@ -22,7 +22,6 @@ import android.os.StatFs;
 import android.os.BatteryManager;
 import android.provider.Settings;
 import android.webkit.WebSettings;
-import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.app.ActivityManager;
 import android.hardware.Camera;
@@ -306,19 +305,6 @@ public class RNDeviceModule extends ReactContextBaseJavaModule {
 
   @ReactMethod
   public void getMacAddress(Promise p) { p.resolve(getMacAddressSync()); }
-
-  @ReactMethod(isBlockingSynchronousMethod = true)
-  public String getCarrierSync() {
-    TelephonyManager telMgr = (TelephonyManager) getReactApplicationContext().getSystemService(Context.TELEPHONY_SERVICE);
-    if (telMgr != null) {
-      return telMgr.getNetworkOperatorName();
-    } else {
-      System.err.println("Unable to get network operator name. TelephonyManager was null");
-      return "unknown";
-    }
-  }
-  @ReactMethod
-  public void getCarrier(Promise p) { p.resolve(getCarrierSync()); }
 
   @ReactMethod(isBlockingSynchronousMethod = true)
   public double getTotalDiskCapacitySync() {

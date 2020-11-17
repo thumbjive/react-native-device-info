@@ -886,16 +886,10 @@ export function getPhoneNumberSync() {
 }
 
 export async function getCarrier() {
-  if (Platform.OS === 'android' || Platform.OS === 'ios') {
-    return RNDeviceInfo.getCarrier();
-  }
   return 'unknown';
 }
 
 export function getCarrierSync() {
-  if (Platform.OS === 'android' || Platform.OS === 'ios') {
-    return RNDeviceInfo.getCarrierSync();
-  }
   return 'unknown';
 }
 
